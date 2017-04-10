@@ -1,0 +1,23 @@
+<div ng-controller="FriendsController" >
+  <h2 class = "search">Friend list</h1>
+
+<table class="table table-striped table-bordered table-hover editable-table">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>School</th>
+    <th>Username</th>
+    <th>Unfriend</th>
+  </tr>
+  <tr ng-repeat="f in friends track by $index" class="success">
+    <td >{{f.firstName}}</td>
+    <td >{{f.lastName}}</td>
+    <td >{{f.school}}</td>
+    <td >{{f.username}}</td>
+    <td><button class="btn btn-danger btn-xs" data-ng-click="remove(f)" value="del">Remove Friend</button></td>
+  </tr>
+
+</table>
+<!-- <div ng-repeat="f in friends">{{f}}</div> -->
+
+</div>

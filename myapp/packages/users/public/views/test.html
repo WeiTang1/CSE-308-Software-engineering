@@ -1,0 +1,31 @@
+<div class="test">
+    <form id="register_form" ng-submit="register()">
+        <h2>Sign Up</h2>
+        <div class="input-wrapper">
+            <input required id="name" type="text" name="name" placeholder="Full Name"
+                   ng-model="user.name">
+        </div>
+        <div class="input-wrapper">
+            <input required id="email_block" type="email" name="email" placeholder="Email Address"
+                   ng-model="user.email">
+        </div>
+        <div class="input-wrapper">
+            <input required id="school_block" type="text" name="school" placeholder="School"
+                   ng-model="schoolName">
+        </div>
+        <div class="input-wrapper">
+            <input required id="username" type="text" name="username" placeholder="Username"
+                   ng-model="user.username">
+        </div>
+        <div class="input-wrapper">
+            <input required id="password_block" name="password" type="{{input.type}}"
+                   placeholder="{{input.placeholder}}" ng-model="user.password">
+        </div>
+
+        <div class="button_register">
+            <button type="submit" class="submit_button">Sign up</button>
+            <p>Already have an account?</p>
+            <a ui-sref='auth.login'>Log in</a>
+        </div>
+    </form>
+  </div>

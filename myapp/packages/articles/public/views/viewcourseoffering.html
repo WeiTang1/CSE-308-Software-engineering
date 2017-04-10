@@ -1,0 +1,25 @@
+<!-- <section data-ng-controller="courseCtrl" data-ng-init="findcourse()"> -->
+<div ng-controller="courseCtrl" >
+  <h2 class = "search">View course offering</h1>
+
+  <table class="table table-striped table-bordered table-hover editable-table">
+    <tr>
+    <th>Course ID</th>
+    <th>Course Name</th>
+    <th>Semester </th>
+    <th>Section Time</th>
+    <th>Professor</th>
+  </tr>
+
+  <tr ng-repeat="section in coursesOffering" class="success">
+  <td>{{section.courseId}}</td>
+  <td>{{section.courseName}}</td>
+  <td>{{section.semester}} </td>
+  <td>{{"period " + section.scheduleBlock.period + " day " + section.scheduleBlock.days}}</td>
+  <td>{{section.professor}}</td>
+  </tr>
+  </table>
+  <!-- <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1> -->
+
+
+</div>

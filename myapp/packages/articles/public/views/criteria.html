@@ -1,0 +1,54 @@
+<div ng-controller="PreferenceCtrl" ng-init = "refreshUser()">
+<h2 class = "search">Preference</h2>
+<table class="table table-striped table-bordered table-hover editable-table">
+<tr>
+  <th>Course ID</th>
+  <th>Excluded sections</th>
+  <th>Prefered Instructor </th>
+  <th>Delete</th>
+</tr>
+<tr ng-repeat="course in user.criteria.courses" class="success" >
+
+<td>{{course.courseId}}</td>
+<td > <ul ng-repeat = 'section in course.excludedSections'> Section period {{section.scheduleBlock.period}} days {{section.scheduleBlock.days}}
+</ul> </td>
+<td><ul ng-repeat = 'p in course.preferedInstructors'> {{p}}  </ul></td>
+<td><button class="glyphicon glyphicon-trash" data-ng-click="removeCourseFromCriteria(course)" value="del">
+    <i class="icon-trash icon-white"></i>
+</button> </td>
+</tr>
+</table>
+
+<!-- <div class = "name" > Lunch: </div>
+<ul  class="day" ng-repeat = "l in lunch track by $index">
+  <input type = "checkbox" ng-model = "l" ng-checked = "l"> Day {{$index +1}} <br>
+</ul> -->
+
+
+<form ng-submit="searchForCourse()">
+<p class = "name">Search for courses:</p><input class="inputwrapper" type="text" ng-model="search.courseId" >
+<button class="btn btn-default"  type="submit">Search</button>
+</form>
+
+<div ng-show = "searchResult !== null && !isEmpty(searchResult)">
+  <h3 class= "name"> {{searchResult.courseId}} {{searchResult.courseName}} </h3>
+
+  <form ng-submit = "addToCriteria()" >
+    <label class="name"> Excluded Sections</label>
+      <li ng-repeat = "section in searchResult.sections">
+      <input type="checkbox" ng-model = "section.selected"> <lable class="name">Section   period   {{section.scheduleBlock.period}}   day   {{section.scheduleBlock.days}}</lable><br>
+      </li>
+    <label class = "name"> Prefered Instructors</label>
+      <li ng-repeat = "section in searchResult.sections">
+      <input type="checkbox" ng-model = "section.preferedInstructor"> <lable class="name">{{section.professor}}<lable><br>
+      </li>
+    <button class="btn btn-default" type = "submit">Add to criteria</button>
+  </form>
+</div>
+<div class="name" ng-show = 'lunch != null&& !isEmpty(lunch)&&lunch.length >= 0'>Lunch
+<ul  ng-repeat = "l in lunch track by $index">
+  <input class = "name" type = "checkbox" ng-model = "lunch[$index]" ng-checked = "l"> <label class="search">Day {{$index +1}} </label><br>
+</ul>
+<button class = "btn btn-default" ng-click = 'updateLunch()'>Update lunch</button>
+</div>
+<button class="btn btn-default" ng-click="generateDesiredSchedule()">Generate Desired Schedule</button>

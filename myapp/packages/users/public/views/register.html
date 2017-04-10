@@ -1,0 +1,68 @@
+<div data-ng-controller="RegisterCtrl">
+    <div ng-repeat="error in registerError">
+        <div class="alert alert-danger animated fadeIn">{{error.msg}}</div>
+    </div>
+    <div class="alert alert-danger animated fadeIn" ng-show="usernameError">{{usernameError}}</div>
+    <div class="alert alert-danger animated fadeIn" ng-show="emailError">{{emailError}}</div>
+
+    <form id="register_form" ng-submit="register()">
+        <h2>Sign Up</h2>
+        <h1 ng-bind-html="pendingMessage"></h1>
+        <div class="input-wrapper">
+            <input required id="firstName" type="text"  placeholder="First Name"
+                   ng-model="user.firstName">
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="lastName" type="text"  placeholder="Last Name"
+                   ng-model="user.lastName">
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="email_block" type="email" name="email" placeholder="Email Address"
+                   ng-model="user.email">
+
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="school_block" type="text" name="school" placeholder="School Name"
+                   ng-model="schoolName">
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="username" type="text" name="username" placeholder="Username"
+                   ng-model="user.username">
+
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="password_block" name="password" type="{{input.type}}"
+                   placeholder="{{input.placeholder}}" ng-model="user.password">
+
+        <!-- <span class="pic password {{input.iconClass}}" ng-click="togglePasswordVisible()">
+              <div class="hide_text_password">
+                  {{input.tooltipText}}
+              </div>
+        </span> -->
+        </div>
+        <div class="input-wrapper">
+            <input required id="confirm_password" name="confirm_password" type="{{input.type}}"
+                   placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
+
+            <!-- <div class="error_message">Please enter a correct info #</div>
+        <span class="pic password {{input.iconClassConfirmPass}}" ng-click="togglePasswordConfirmVisible()">
+              <div class="hide_text_password">
+                  {{input.tooltipTextConfirmPass}}
+              </div>
+        </span> -->
+        </div>
+
+        <div class="button_register">
+            <button class = "btn btn-default" type="submit" class="submit_button">Sign up</button>
+            <p>Already have an account?</p>
+            <a ui-sref='auth.login'>Log in</a>
+        </div>
+    </form>
+
+
+</div>

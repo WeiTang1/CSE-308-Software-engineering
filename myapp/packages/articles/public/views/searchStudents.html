@@ -1,0 +1,30 @@
+<div class="searchStudents" ng-controller="searchStudents">
+<h2 class = "search">Search</h1>
+<p class = "name">First Name:</p> <input class="inputwrapper" ng-model="firstName">
+<p class = "name">Last Name:</p> <input class = "inputwrapper" ng-model="lastName">
+<button class="btn btn-default" ng-click="findByFirstLastName(firstName,lastName)">Find</button>
+
+<table class="table table-striped table-bordered table-hover editable-table">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>School</th>
+    <th>Username</th>
+    <th>Friend status</th>
+  </tr>
+  <tr ng-repeat="u in foundUsers" class="success">
+    <td>{{u.firstName}}</td>
+    <td>{{u.lastName}}</td>
+    <td>{{u.school}}</td>
+    <td>{{u.username}}</td>
+    <td>
+      <span>
+      <button class="btn btn-primary btn-xs" ng-click="addFriend(u)" ng-hide="areFriends(u)||requestSentTo(u)">Send Friend Request</button>
+      <button class="btn btn-success btn-xs" ng-show="requestSentTo(u) && !areFriends(u)">Request Sent</button>
+      <button class="btn btn-info btn-xs" ng-show="areFriends(u)">Friends</button>
+      </span>
+    </td>
+
+  </tr>
+</table>
+</div>

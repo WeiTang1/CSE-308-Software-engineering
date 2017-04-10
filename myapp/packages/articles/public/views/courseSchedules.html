@@ -1,0 +1,136 @@
+<script src="https://rawgithub.com/eligrey/FileSaver.js/master/FileSaver.js" type="text/javascript">
+</script>
+
+<div class="assignschedule" data-ng-controller="assignedScheduleCtrl">
+  <h1 class="search">Assigned Schedule</h1>
+
+  <div id="assignedSchedule">
+<table class="table table-striped table-bordered table-hover editable-table">
+  <tr>
+    <th></th>
+  <th ng-repeat="d in days">
+    Day {{d}}
+  </th>
+  </tr>
+<tr ng-repeat="p in periods" class="success">
+  <td>Period {{p}}</td>
+  <td ng-repeat="d in days">
+    <label ng-repeat="s in currentStudentAssignedSchedule"
+    ng-if="p === s.scheduleBlock.period
+    && s.scheduleBlock.days.indexOf(d) > -1"
+    ng-click="showFriendsInSection(s)">
+  {{s.courseId}}
+    </label>
+    <label ng-hide="p === s.scheduleBlock.period
+    && s.scheduleBlock.days.indexOf(d) > -1">
+    </label>
+  </td>
+</tr>
+</table>
+</div>
+
+<div id="assignedScheduleWithFriends" ng-hide="true" >
+<table class="table table-striped table-bordered table-hover editable-table">
+<tr>
+  <th></th>
+<th ng-repeat="d in days">
+  Day {{d}}
+</th>
+</tr>
+<tr ng-repeat="p in periods" class="success">
+<td>Period {{p}}</td>
+<td ng-repeat="d in days">
+  <label ng-repeat="s in currentStudentAssignedSchedule"
+  ng-if="p === s.scheduleBlock.period
+  && s.scheduleBlock.days.indexOf(d) > -1"
+  ng-click="showFriendsInSection(s)">
+{{s.courseId}} Friends: <span ng-repeat="friend in friendsInSection(s)">{{friend}},</span>
+  </label>
+  <label ng-hide="p === s.scheduleBlock.period
+  && s.scheduleBlock.days.indexOf(d) > -1">
+  </label>
+</td>
+</tr>
+</table>
+</div>
+
+<button class = "btn btn-default" ng-click="exportAssignedSchedule()">Export Assigned Schedule</button>
+<button class = "btn btn-default" ng-click="exportAssignedScheduleWithFriends()">Export Assigned Schedule with Friends</button>
+
+<div id="desiredSchedule">
+<h1 class="search">Desired Schedule</h1>
+<table class="table table-striped table-bordered table-hover editable-table">
+<tr>
+  <th></th>
+<th ng-repeat="d in days">
+  Day {{d}}
+</th>
+</tr>
+<tr ng-repeat="p in periods" class="success">
+<td>Period {{p}}</td>
+<td ng-repeat="d in days">
+  <label ng-repeat="s in currentStudentDesiredSchedule"
+  ng-if="p === s.scheduleBlock.period
+  && s.scheduleBlock.days.indexOf(d) > -1"
+  ng-click="showFriendsInSection(s)">
+{{s.courseId}}
+  </label>
+  <label ng-hide="p === s.scheduleBlock.period
+  && s.scheduleBlock.days.indexOf(d) > -1">
+  </label>
+</td>
+</tr>
+</table>
+<!-- <table class="table table-striped table-bordered table-hover editable-table">
+  <tr>
+    <th></th>
+  <th ng-repeat="d in days">
+    Day {{d}}
+  </th>
+  </tr>
+
+<tr ng-repeat="p in periods" class="success">
+  <td>Period {{p}}</td>
+  <td ng-repeat="d in days">
+    <label ng-repeat="s in currentStudentDesiredSchedule"
+    ng-show="p === s.scheduleBlock.period
+    && s.scheduleBlock.days.indexOf(d) > -1">
+  {{s.courseId}}
+    </label>
+    <label ng-hide="p === s.scheduleBlock.period
+    && s.scheduleBlock.days.indexOf(d) > -1">
+    </label>
+  </td>
+</tr>
+</table> -->
+</div>
+
+<div id="desiredScheduleWithFriends" ng-hide="true" >
+<table class="table table-striped table-bordered table-hover editable-table">
+<tr>
+  <th></th>
+<th ng-repeat="d in days">
+  Day {{d}}
+</th>
+</tr>
+<tr ng-repeat="p in periods" class="success">
+<td>Period {{p}}</td>
+<td ng-repeat="d in days">
+  <label ng-repeat="s in currentStudentDesiredSchedule"
+  ng-if="p === s.scheduleBlock.period
+  && s.scheduleBlock.days.indexOf(d) > -1"
+  ng-click="showFriendsInSection(s)">
+{{s.courseId}} Friends: <span ng-repeat="friend in friendsInSection(s)">{{friend}},</span>
+  </label>
+  <label ng-hide="p === s.scheduleBlock.period
+  && s.scheduleBlock.days.indexOf(d) > -1">
+  </label>
+</td>
+</tr>
+</table>
+</div>
+
+<button class = "btn btn-default" ng-click="exportDesiredSchedule()">Export Desired Schedule</button>
+<button class = "btn btn-default" ng-click="exportDesiredScheduleWithFriends()">Export Desired Schedule with Friends</button>
+
+</div>

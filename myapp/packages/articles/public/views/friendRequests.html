@@ -1,0 +1,15 @@
+<div ng-controller="FriendRequestsController" >
+  <h2 class = "search">Friend request</h1>
+<table class="table table-striped table-bordered table-hover editable-table">
+  <tr>
+  <th>Username</th>
+  <th></th>
+  </tr>
+  <tr ng-repeat="fr in friendRequests" class="success">
+    <td>{{fr.requester.username}}</td><td align="right">
+      <button class="sendrequest_button" ng-click="acceptFriendRequest(fr.requester)">Accept</button>
+      <button class="sendrequest_button" ng-click="declineFriendRequest(fr.requester)">Decline</button>
+      </td>
+  </tr>
+</table>
+</div>

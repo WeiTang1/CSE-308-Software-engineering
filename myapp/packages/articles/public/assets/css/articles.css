@@ -1,0 +1,154 @@
+h1 {
+	text-align: center
+}
+ul.articles li:not(:last-child) {
+	border-bottom: 1px solid #ccc
+}
+.inputwrapper  {
+	  margin-left:10px;
+		margin-right:10px;
+		margin-bottom: 0.5cm;
+    width: 150px;
+		height: 20px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 18px 0 18px 16px;
+    outline: none;
+    font-size: 15px;
+    font-family: 'proxima_nova_rgregular';
+    /*line-height: 10px;*/
+		text-align:left;
+}
+
+.find_button {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background: url("/theme/assets/img/button_login.png") no-repeat 50% 50%;
+    width: 107px;
+    height: 47px;
+    font-size: 21px;
+    color: white;
+    font-family: "open_sans_hebrewregular";
+}
+
+.search{
+	  text-align: left;
+		margin-bottom: 1cm;
+		color:white;
+    font-size: 30px;
+    padding-bottom: 4px;
+    font-family: "futura_bkbook";
+    /*margin: 0;*/
+    /*text-transform: uppercase;*/
+}
+.name{
+   	margin-left:20px;
+	  /*display:inline;*/
+		color:white;
+    font-size: 20px;
+		margin-right:auto;
+    padding-bottom: 4px;
+		margin-bottom:0.5cm;
+    font-family: "futura_bkbook";
+    margin: 0;
+		width:250px; /* or whatever width you want. */
+    max-width:250px; /* or whatever width you want. */
+    display: inline-block;
+    /*text-transform: uppercase;*/
+}
+.day{
+	display: inline-block;
+	font-family: "futura_bkbook";
+  color:white;
+}
+.assignschedule .addcourse_button {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background: url("/theme/assets/img/button_login.png") no-repeat 50% 50%;
+    width: 107px;
+    height: 47px;
+    font-size: 17px;
+    color: white;
+    font-family: "open_sans_hebrewregular";
+}
+.assignschedule .inputwrapper  {
+	  margin-left:10px;
+		margin-right:10px;
+		margin-bottom: 0.5cm;
+    width: 180px;
+		height: 20px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 18px 0 18px 16px;
+    outline: none;
+    font-size: 15px;
+    font-family: 'proxima_nova_rgregular';
+    /*line-height: 10px;*/
+		text-align:left;
+}
+.assignschedule .displayaddcourse{
+	  display:block;
+    font-size: 20px;
+    /*padding-bottom: 4px;*/
+    font-family: "futura_bkbook";
+    margin-bottom: 0.5cm;
+    /*text-transform: uppercase;*/
+}
+.period {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid green;
+    width: 200px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.sendrequest_button{
+	background:green;
+	color: white;
+	border-radius: 5px;
+	font-family: "open_sans_hebrewregular";
+}
+.addschool .name{
+   	margin-left:20px;
+	  /*display:inline;*/
+    font-size: 20px;
+		margin-right:auto;
+    padding-bottom: 4px;
+		margin-bottom:0.5cm;
+    font-family: "futura_bkbook";
+    margin: 0;
+		width:200px; /* or whatever width you want. */
+    max-width:200px; /* or whatever width you want. */
+    display: inline-block;
+    /*text-transform: uppercase;*/
+}
+
+.squaredFour {
+	width: 20px;
+	margin: 20px auto;
+	position: relative;
+}
+
+.squaredFour label {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 0;
+	border-radius: 4px;
+
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	background: #fcfff4;
+
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}

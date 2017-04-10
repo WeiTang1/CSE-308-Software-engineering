@@ -1,0 +1,30 @@
+<!-- <html>
+<body data-ng-controller="SchoolController"> -->
+<div class="addschool" data-ng-controller="SchoolController">
+<h2 class = "search">Add School</h2>
+
+<form id="addSchoolForm" name="addSchoolForm" ng-submit="addSchool()">
+<span ng-bind="errorAddSchool"></span>
+<div><p class = "name">School Name:</p>
+<input class="inputwrapper" required id="schoolName" type="text" ng-model="schoolName" placeholder="i.e Stony Brook"></div>
+<div><p class = "name">Semester:</p>
+<input class="inputwrapper" required id="semester" type="text" ng-model="semester" placeholder="i.e Fall 2015"></div>
+<div><p class = "name">Current Semester:</p>
+<input class="inputwrapper" required id="currentSemester" type="text" ng-model="currentSemester" placeholder="i.e Fall 2015"></div>
+<div><p class = "name">Periods:</p>
+<input class="inputwrapper" required id="period" type="text" ng-model="periods" placeholder="6~12"></div>
+<div><p class = "name">Days:</p>
+<input class="inputwrapper" required id="days" type="text" ng-model="days" placeholder="1~7"></div>
+
+<div><p class = "name">Lunch Start:</p>
+<input class="inputwrapper" required id="lunchStartPeriod" type="text" ng-model="lunchStartPeriod" placeholder="1~7"></div>
+
+<div><p class = "name">Lunch End:</p>
+<input class="inputwrapper" required id="lunchEndPeriod" type="text" ng-model="lunchEndPeriod" placeholder="1~7"></div>
+
+<button class="find_button" type="submit">Add</button>
+</form>
+</div>
+<!--
+</body>
+</html> -->

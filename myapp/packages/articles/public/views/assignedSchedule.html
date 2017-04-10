@@ -1,0 +1,76 @@
+<!--  Wei Tang -->
+<div class="assignschedule" data-ng-controller="assignedScheduleCtrl">
+<h2 class = "search">Enter Assigned schedule</h2>
+
+<!-- Search for course -->
+<form ng-submit="searchForCourse()">
+<p class = "name">Search for courses:</p><input class="inputwrapper" type="text" ng-model="search.courseId" placeholder="Course ID i.e. CSE308">
+<button class="btn btn-default"  type="submit">Search</button>
+</form>
+
+<div ng-show="searchResult !== null && !isEmpty(searchResult) && searchResult.semester === currentSemester">
+  <label class = "name" >{{searchResult.courseId}} {{searchResult.courseName}} {{searchResult.semester}}</label>
+    <select ng-model="sectionSelected" ng-options="'Period '+s.scheduleBlock.period+'. Days '+s.scheduleBlock.days + '. Professor ' + s.professor + '.' for s in searchResult.sections">
+    </select>
+    <button class="btn btn-info" ng-click="addSectionToAssignedSchedule()">Add to Assigned Schedule</button>
+    <button ng-click="showAddSection()" class="btn btn-info">My section is not here</button>
+</div>
+
+<!-- Add course if not found -->
+
+<form name="addCourseForm" ng-submit="addCourse()" ng-show="searchResult.semester !== currentSemester && !isEmpty(searchResult) && !courseAdded">
+<p class = "name">Course not found! Add course to database:</p>
+<div><p class = "name">CourseID:   </p><input class="inputwrapper" ng-model="courseId" type="text" placeholder="Course ID" required></div>
+<div><p class = "name">Course Name:</p><input class="inputwrapper" ng-model="courseName" type="text" placeholder="Course Name" required></div>
+<div><p class = "name">Semester:   </p><input class="inputwrapper" ng-model="semester" type="text" placeholder="Semester" required></div>
+<div><p class = "name">Professor:  </p><input class="inputwrapper" ng-model="professor" type="text" placeholder="Professor" required></div>
+  <p class = "name">Choose a period:     </p>
+  <select class = "period" ng-model="periodSelected">
+<option ng-repeat="p in periods" value="{{p}}">Period {{p}}</option>
+</select>
+<p class = "name">Choose days(hold ctrl to choose mutiple):</p>
+<select ng-model="daysSelected" multiple>
+<option ng-repeat="d in days" value="{{d}}">Day {{d}}</option>
+</select>
+
+<button class="btn btn-default" type="submit" ng-click="courseAdded = true">Add Course</button>
+
+</form>
+<br>
+
+<!-- Add section if course is found but section not found -->
+<div ng-show="showSection">
+  <h3>Add section</h3>
+  <p class = "name">Professor:  </p><input class="inputwrapper" ng-model="section.professor" type="text" placeholder="Professor" required>
+  <p class = "name">Choose a period:     </p>
+  <select class="period" ng-model="section.periodSelected">
+    <option ng-repeat="p in periods" value="{{p}}">Period {{p}}</option>
+  </select>
+  <p class = "name">Choose days(hold ctrl to choose mutiple):</p>
+  <select ng-model="section.daysSelected" multiple>
+    <option ng-repeat="d in days" value="{{d}}">Day {{d}}</option>
+  </select>
+  <button class="btn btn-info" ng-click="addSectionToCourse(searchResult)">Add section to course</button>
+
+</div>
+
+<button ng-click="edit=true" ng-hide="edit" class="btn btn-warning">Edit</button>
+<button ng-click="edit=false" ng-show="edit" class="btn btn-info">Done</button>
+<table class="table table-striped table-bordered table-hover editable-table">
+  <tr>
+  <th ng-repeat="d in days">Day {{d}}</th>
+  </tr>
+<tr ng-repeat="p in periods" class="success">
+  <td ng-repeat="d in days">
+    <label ng-repeat="s in currentStudentAssignedSchedule"
+    ng-show="p === s.scheduleBlock.period && s.scheduleBlock.days.indexOf(d) > -1">
+  {{s.courseId}}
+  <button class="btn btn-danger btn-xs" ng-if="edit" ng-click="removeSectionFromAssignedSchedule(s)">Remove</button>
+    </label>
+    <label ng-hide="p === s.scheduleBlock.period && s.scheduleBlock.days.indexOf(d) > -1">
+    </label>
+  </td>
+</tr>
+</table>
+
+</div>
